@@ -1,0 +1,54 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const NFTs_details=[];
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (covidPatient,age,sex,currentScenario) {
+   const obj={
+    "Name":covidPatient,
+    "Age":age,
+    "Sex":sex,
+    "Current_Scenario":currentScenario
+   }
+   NFTs_details.push(obj);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+   for(let i=0;i<NFTs_details.length;i++){
+    let vari=NFTs_details[i];
+    let numbering=i+1;
+    console.log(numbering);
+    console.log("name:\t\t\t"+vari.Name);
+    console.log("Age:\t\t\t"+vari.Age);
+    console.log("Sex:\t\t\t"+vari.Sex);
+    console.log("Current Status: "+vari.Current_Scenario);
+   }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+   console.log("Total no of NFTs:"+NFTs_details.length);
+}
+
+// call your functions below this line
+mintNFT ("Damon",38,"Male","Survived");
+mintNFT ("Elena",20,"Female","notSurvived");
+mintNFT ("Stefan",30,"Male","Survived");
+mintNFT ("Caroline",30,"Female","Survived");
+mintNFT ("Bonnie",30,"Female","Survived");
+mintNFT ("Tyler",30,"Male","notSurvived");
+mintNFT ("Matt",30,"Male","Survived");
+listNFTs();
+getTotalSupply();
